@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">CococitiTask</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="forget_pwd">forget password</string>
+    <string name="Sign_up">Sign Up</string>
+    <string name="invalid_email_pwd">Invalid email id or password</string>
+
+</resources>
