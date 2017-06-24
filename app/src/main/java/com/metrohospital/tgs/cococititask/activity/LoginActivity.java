@@ -2,6 +2,7 @@ package com.metrohospital.tgs.cococititask.activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
@@ -17,12 +18,15 @@ import com.metrohospital.tgs.cococititask.R;
 import com.metrohospital.tgs.cococititask.adapter.User;
 import com.metrohospital.tgs.cococititask.datamodal.LoginModel;
 import com.metrohospital.tgs.cococititask.retrofit.API;
+import com.metrohospital.tgs.cococititask.util.Util;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+
+import static com.metrohospital.tgs.cococititask.R.string.please_check_internet_connection;
 public class LoginActivity extends AppCompatActivity {
     private EditText mEmailView;
     private EditText mPasswordView;
@@ -56,7 +60,11 @@ public class LoginActivity extends AppCompatActivity {
         mEmailSignInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                attemptLogin();
+                if(Util.isConnected(LoginActivity.this)) {
+                    attemptLogin();
+                }else {
+                   Toast.makeText(LoginActivity.this,R.string.please_check_internet_connection,Toast.LENGTH_SHORT).show();
+                }
             }
         });
         Button SignUpButton = (Button) findViewById(R.id.sign_up_btn);
